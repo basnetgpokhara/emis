@@ -1,0 +1,603 @@
+/* ============================================================
+   EMIS — Application-wide Modern Light Theme
+   Scoped entirely under .exam-module (applied to the <body> of
+   all admin-family master layouts) so the public website and
+   anything outside those layouts stays visually unchanged.
+   ============================================================ */
+
+.exam-module {
+  /* Design tokens */
+  --em-primary: #4f46e5;
+  --em-primary-dark: #4338ca;
+  --em-primary-light: #eef2ff;
+  --em-accent: #6366f1;
+  --em-success: #16a34a;
+  --em-warning: #d97706;
+  --em-danger: #dc2626;
+  --em-info: #0284c7;
+  --em-bg: #f1f5f9;
+  --em-card-bg: #ffffff;
+  --em-border: #e2e8f0;
+  --em-text: #0f172a;
+  --em-text-muted: #64748b;
+  --em-radius: 10px;
+  --em-radius-sm: 6px;
+  --em-shadow: 0 1px 2px rgba(15, 23, 42, .06), 0 4px 16px rgba(15, 23, 42, .06);
+  --em-shadow-sm: 0 1px 2px rgba(15, 23, 42, .08);
+}
+
+/* ---------- Page chrome ---------- */
+.exam-module .page-content {
+  background: var(--em-bg);
+}
+.exam-module .page-header {
+  margin: 0 0 22px;
+  padding: 14px 0 14px;
+  border-bottom: 1px solid var(--em-border);
+}
+.exam-module .page-header h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--em-text);
+  margin: 0;
+  letter-spacing: -.01em;
+}
+.exam-module .page-header h1 small {
+  color: var(--em-text-muted);
+  font-weight: 400;
+  font-size: 14px;
+  margin-left: 8px;
+}
+.exam-module .page-header .ace-icon {
+  color: var(--em-primary);
+}
+
+/* ---------- Section headings (h4.header / .table-header) ---------- */
+.exam-module h4.header,
+.exam-module .header {
+  border: none;
+  color: var(--em-text) !important;
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+.exam-module .header.large {
+  font-size: 16px;
+}
+.exam-module .header.blue {
+  border-bottom: none;
+}
+.exam-module .header .ace-icon,
+.exam-module .header .fa {
+  color: var(--em-primary);
+}
+
+.exam-module .table-header {
+  background: var(--em-primary-light);
+  color: var(--em-primary-dark);
+  border-left: 4px solid var(--em-primary);
+  border-radius: var(--em-radius-sm);
+  padding: 10px 16px;
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+/* ---------- Cards / containers ---------- */
+.exam-module .panel,
+.exam-module .panel-default {
+  border: 1px solid var(--em-border);
+  border-radius: var(--em-radius);
+  box-shadow: var(--em-shadow-sm);
+  background: var(--em-card-bg);
+}
+.exam-module .panel-default > .panel-heading {
+  background: #fff;
+  border-bottom: 1px solid var(--em-border);
+  border-radius: var(--em-radius) var(--em-radius) 0 0;
+  padding: 14px 16px;
+}
+.exam-module .panel-title .header,
+.exam-module .panel-title h3 {
+  margin: 0;
+  font-size: 14px;
+}
+.exam-module .panel-body {
+  padding: 20px;
+  background: #fbfcfe;
+  border-radius: 0 0 var(--em-radius) var(--em-radius);
+}
+.exam-module .panel-group .panel {
+  margin-bottom: 18px;
+}
+.exam-module .panel-group .panel + .panel {
+  margin-top: 0;
+}
+
+.exam-module .widget-box {
+  border: 1px solid var(--em-border);
+  border-radius: var(--em-radius);
+  box-shadow: var(--em-shadow-sm);
+  background: var(--em-card-bg);
+}
+.exam-module .widget-header {
+  background: #fff;
+  border-bottom: 1px solid var(--em-border);
+  border-radius: var(--em-radius) var(--em-radius) 0 0;
+  padding: 10px 14px;
+}
+.exam-module .widget-main {
+  background: #fff;
+  border-radius: 0 0 var(--em-radius) var(--em-radius);
+}
+
+/* ---------- Module navigation (easy-link-menu) ---------- */
+.exam-module .easy-link-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.exam-module .easy-link-menu a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 13px;
+  text-decoration: none !important;
+  border: 1px solid var(--em-border);
+  background: #fff;
+  color: var(--em-text-muted);
+  transition: all .15s ease;
+  line-height: 1.4;
+}
+.exam-module .easy-link-menu a:hover {
+  border-color: var(--em-primary);
+  color: var(--em-primary);
+  background: var(--em-primary-light);
+}
+.exam-module .easy-link-menu a.btn-success {
+  background: var(--em-primary);
+  border-color: var(--em-primary);
+  color: #fff;
+  box-shadow: var(--em-shadow-sm);
+}
+.exam-module .easy-link-menu a.btn-success:hover {
+  background: var(--em-primary-dark);
+  border-color: var(--em-primary-dark);
+  color: #fff;
+}
+
+/* ---------- Buttons ---------- */
+.exam-module .btn {
+  border-radius: var(--em-radius-sm);
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  box-shadow: var(--em-shadow-sm);
+  transition: all .15s ease;
+  line-height: 1.5;
+}
+.exam-module .btn:hover,
+.exam-module .btn:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(15, 23, 42, .14);
+  outline: none;
+}
+.exam-module .btn-primary { background: var(--em-primary); }
+.exam-module .btn-primary:hover,
+.exam-module .btn-primary:focus { background: var(--em-primary-dark); }
+.exam-module .btn-info { background: var(--em-info); }
+.exam-module .btn-info:hover,
+.exam-module .btn-info:focus { background: #0369a1; }
+.exam-module .btn-success { background: var(--em-success); }
+.exam-module .btn-success:hover,
+.exam-module .btn-success:focus { background: #15803d; }
+.exam-module .btn-warning { background: var(--em-warning); }
+.exam-module .btn-warning:hover,
+.exam-module .btn-warning:focus { background: #b45309; }
+.exam-module .btn-danger { background: var(--em-danger); }
+.exam-module .btn-danger:hover,
+.exam-module .btn-danger:focus { background: #b91c1c; }
+.exam-module .btn-inverse { background: #334155; }
+.exam-module .btn-inverse:hover { background: #1e293b; }
+
+.exam-module .btn-minier {
+  padding: 5px 12px;
+  font-size: 12px;
+  border-radius: var(--em-radius-sm);
+}
+.exam-module .btn-xs {
+  padding: 3px 10px;
+  font-size: 12px;
+  border-radius: var(--em-radius-sm);
+}
+.exam-module .btn-sm {
+  padding: 5px 14px;
+  font-size: 13px;
+  border-radius: var(--em-radius-sm);
+}
+
+.exam-module .btn-group .dropdown-toggle {
+  box-shadow: var(--em-shadow-sm);
+}
+
+/* ---------- Dropdown menus ---------- */
+.exam-module .dropdown-menu {
+  border: 1px solid var(--em-border);
+  border-radius: var(--em-radius);
+  box-shadow: var(--em-shadow);
+  padding: 6px;
+}
+.exam-module .dropdown-menu > li > a {
+  border-radius: var(--em-radius-sm);
+  padding: 8px 14px;
+  color: var(--em-text);
+  font-size: 13px;
+}
+.exam-module .dropdown-menu > li > a:hover,
+.exam-module .dropdown-menu > li > a:focus {
+  background: var(--em-primary-light);
+  color: var(--em-primary-dark);
+}
+
+/* ---------- Forms ---------- */
+.exam-module .form-group {
+  margin-bottom: 18px;
+}
+.exam-module .form-horizontal .control-label {
+  text-align: right;
+}
+.exam-module label.control-label {
+  background: transparent;
+  border: none;
+  color: var(--em-text);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 12px 0;
+}
+.exam-module .form-control {
+  border: 1px solid var(--em-border);
+  border-radius: var(--em-radius-sm);
+  height: 36px;
+  box-shadow: none;
+  padding: 6px 12px;
+  color: var(--em-text);
+  font-size: 13px;
+  background: #fff;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.exam-module .form-control:focus {
+  border-color: var(--em-primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, .12);
+}
+.exam-module .form-control.input-sm {
+  height: 32px;
+}
+.exam-module textarea.form-control {
+  height: auto;
+}
+.exam-module input:required {
+  border-left: 3px solid var(--em-primary);
+}
+.exam-module select.form-control {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--em-text-muted) 50%),
+    linear-gradient(135deg, var(--em-text-muted) 50%, transparent 50%);
+  background-position: calc(100% - 18px) 15px, calc(100% - 13px) 15px;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 28px;
+}
+
+/* Chosen (cascading selects) */
+.exam-module .chosen-container .chosen-single {
+  height: 36px;
+  line-height: 34px;
+  border: 1px solid var(--em-border);
+  border-radius: var(--em-radius-sm);
+  background: #fff;
+  box-shadow: none;
+  font-size: 13px;
+  color: var(--em-text);
+}
+.exam-module .chosen-container .chosen-single span {
+  line-height: 34px;
+}
+.exam-module .chosen-container.chosen-container-single .chosen-single div b {
+  background-position: 0 12px;
+}
+.exam-module .chosen-container .chosen-drop {
+  border: 1px solid var(--em-border);
+  border-radius: 0 0 var(--em-radius-sm) var(--em-radius-sm);
+  box-shadow: var(--em-shadow);
+  margin-top: 2px;
+}
+.exam-module .chosen-container .chosen-results li {
+  font-size: 13px;
+  padding: 7px 10px;
+}
+.exam-module .chosen-container .chosen-results li.highlighted {
+  background: var(--em-primary-light);
+  color: var(--em-primary-dark);
+}
+
+/* ---------- Tables ---------- */
+.exam-module .table-responsive {
+  background: var(--em-card-bg);
+  border: 1px solid var(--em-border);
+  border-radius: var(--em-radius);
+  box-shadow: var(--em-shadow-sm);
+  margin-top: 12px;
+}
+.exam-module .table {
+  margin-bottom: 0;
+  background: transparent;
+}
+.exam-module .table > thead > tr > th {
+  background: var(--em-primary-light);
+  color: var(--em-primary-dark);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--em-border);
+  padding: 12px 14px;
+  text-align: center;
+}
+.exam-module .table > tbody > tr > td {
+  padding: 12px 14px;
+  vertical-align: middle;
+  border-top: 1px solid var(--em-border);
+  font-size: 13px;
+  color: var(--em-text);
+}
+.exam-module .table > tbody > tr:first-child > td {
+  border-top: 0;
+}
+.exam-module .table-hover > tbody > tr:hover {
+  background: #f8fafc;
+}
+.exam-module .table-striped > tbody > tr:nth-of-type(odd) {
+  background: #f8fafc;
+}
+.exam-module .table-striped > tbody > tr:nth-of-type(odd):hover {
+  background: #eef2ff;
+}
+.exam-module .table-bordered,
+.exam-module .table-bordered > thead > tr > th,
+.exam-module .table-bordered > tbody > tr > td,
+.exam-module .table-bordered > tfoot > tr > th,
+.exam-module .table-bordered > tfoot > tr > td {
+  border: 1px solid var(--em-border);
+}
+
+/* Inputs inside tables (schedule / mark entry rows) */
+.exam-module .table input.form-control,
+.exam-module .table select.form-control {
+  height: 32px;
+  padding: 4px 8px;
+  font-size: 13px;
+}
+.exam-module .table input[type=checkbox].form-control {
+  width: auto;
+  height: auto;
+  box-shadow: none;
+  margin: 4px auto;
+  display: inline-block;
+  border: none;
+  border-radius: 4px;
+}
+.exam-module .table .btn {
+  padding: 4px 10px;
+  font-size: 12px;
+}
+.exam-module .table .option_value {
+  background: #fbfcfe;
+}
+
+/* Drag / remove handles in dynamic rows */
+.exam-module .table .btn-xs.btn-primary {
+  background: var(--em-primary-light);
+  color: var(--em-primary-dark);
+  border: 1px solid var(--em-border);
+  box-shadow: none;
+  cursor: move;
+}
+.exam-module .table .btn-xs.btn-danger {
+  background: #fef2f2;
+  color: var(--em-danger);
+  border: 1px solid #fecaca;
+  box-shadow: none;
+}
+.exam-module .table .btn-xs.btn-danger:hover {
+  background: var(--em-danger);
+  color: #fff;
+  transform: none;
+}
+
+/* ---------- Status labels / pills ---------- */
+.exam-module .label {
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  display: inline-block;
+  line-height: 1.4;
+}
+.exam-module .label-primary {
+  background: var(--em-primary-light);
+  color: var(--em-primary-dark);
+}
+.exam-module .label-danger {
+  background: #fef2f2;
+  color: var(--em-danger);
+}
+.exam-module .label-success {
+  background: #f0fdf4;
+  color: var(--em-success);
+}
+.exam-module .label-warning {
+  background: #fffbeb;
+  color: var(--em-warning);
+}
+.exam-module .label-info {
+  background: #ecfeff;
+  color: var(--em-info);
+}
+
+/* ---------- Action icon buttons ---------- */
+.exam-module .action-buttons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: all .15s ease;
+  text-decoration: none !important;
+}
+.exam-module .action-buttons a.green:hover {
+  background: #f0fdf4;
+}
+.exam-module .action-buttons a.red:hover {
+  background: #fef2f2;
+}
+.exam-module .action-buttons .fa {
+  font-size: 14px;
+}
+
+/* ---------- DataTables toolbar ---------- */
+.exam-module .dataTables_filter input,
+.exam-module .dataTables_length select {
+  border: 1px solid var(--em-border);
+  border-radius: var(--em-radius-sm);
+  padding: 5px 10px;
+  font-size: 13px;
+  background: #fff;
+  color: var(--em-text);
+}
+.exam-module .dataTables_paginate .paginate_button {
+  border-radius: var(--em-radius-sm) !important;
+  margin: 0 2px;
+  font-size: 13px;
+}
+.exam-module .dataTables_paginate .paginate_button.current {
+  background: var(--em-primary) !important;
+  border-color: var(--em-primary) !important;
+  color: #fff !important;
+  box-shadow: var(--em-shadow-sm) !important;
+}
+.exam-module .dataTables_paginate .paginate_button:hover {
+  background: var(--em-primary-light) !important;
+  color: var(--em-primary-dark) !important;
+  border-color: var(--em-primary) !important;
+}
+
+/* ---------- Spacing & misc ---------- */
+.exam-module .easy-link-menu {
+  margin-bottom: 6px;
+}
+.exam-module .form-actions {
+  background: transparent;
+  border-top: 1px solid var(--em-border);
+  padding-top: 18px;
+}
+.exam-module .hr,
+.exam-module hr {
+  border-top: 1px solid var(--em-border);
+}
+.exam-module .well {
+  background: #f8fafc;
+  border: 1px solid var(--em-border);
+  border-radius: var(--em-radius);
+  box-shadow: none;
+  color: var(--em-text);
+}
+
+/* Accordion toggle arrow indicator */
+.exam-module .panel-title .accordion-toggle::after {
+  font-family: "FontAwesome";
+  content: "\f078";
+  float: right;
+  color: var(--em-text-muted);
+  font-size: 12px;
+  transition: transform .2s ease;
+}
+.exam-module .panel-title .accordion-toggle.collapsed::after {
+  content: "\f054";
+}
+
+/* ---------- Print guard ----------
+   Printed documents (receipts, certificates, report cards) keep
+   the classic print look. Reset the modern styling in print and
+   hide screen-only controls. The print views' own receipt-css
+   (loaded via @yield('css') after this link) still wins where it
+   sets print styles. */
+@media print {
+  .exam-module .page-content {
+    background: #fff;
+  }
+  .exam-module .page-header {
+    border-bottom: none;
+  }
+  .exam-module .table-header,
+  .exam-module .panel,
+  .exam-module .widget-box,
+  .exam-module .table-responsive {
+    background: #fff !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+  .exam-module .panel-heading,
+  .exam-module .panel-body,
+  .exam-module .widget-header,
+  .exam-module .widget-main {
+    background: #fff !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+  .exam-module .table > thead > tr > th {
+    background: #fff !important;
+    color: #000 !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    font-size: inherit !important;
+    border-bottom: 2px solid #999 !important;
+  }
+  .exam-module .table,
+  .exam-module .table > tbody > tr > td,
+  .exam-module .table-bordered,
+  .exam-module .table-bordered > thead > tr > th,
+  .exam-module .table-bordered > tbody > tr > td {
+    background: #fff !important;
+    color: #000 !important;
+    border-color: #ccc !important;
+  }
+  .exam-module .table-striped > tbody > tr:nth-of-type(odd) {
+    background: #fff !important;
+  }
+  .exam-module .label {
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #999 !important;
+    border-radius: 0 !important;
+  }
+  .exam-module .easy-link-menu,
+  .exam-module .form-actions,
+  .exam-module .btn,
+  .exam-module .action-buttons,
+  .exam-module .btn-group,
+  .exam-module .dataTables_wrapper .dataTables_length,
+  .exam-module .dataTables_wrapper .dataTables_filter,
+  .exam-module .dataTables_wrapper .dataTables_info,
+  .exam-module .dataTables_wrapper .dataTables_paginate {
+    display: none !important;
+  }
+}

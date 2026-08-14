@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+
+.main-content {
+    height: 800px;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+h1{
+	font-size:24px;
+	text-transform:capitalize;
+	padding:0 0 10px 0;
+	border-bottom:1px solid #ededed;
+	margin:0 0 15px 0;
+	font-weight:normal;
+	color:#985629;
+	text-align:center;
+}
+
+.overlay-bg {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+    cursor: pointer;
+    z-index: 9999; /* high z-index */
+    background: #000; /* fallback */
+    background: rgba(0,0,0,0.75);
+}
+.overlay-content {
+    display: none;
+    background: #fff;
+    padding: 1%;
+/*    width: 40%;*/
+    position: absolute;
+    top: 5%;
+    left: 48%;
+    margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
+    cursor: default;
+    z-index: 10001;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.9);
+}
+
+.overlay-content img{
+/*    padding: 0 15px 15px 0;	*/
+    max-width: 100%!important;
+    height: auto!important
+}
+
+.close-btn {
+    cursor: pointer;
+    border: 1px solid #fff;
+    padding: 1% 2%;
+    background:#ee162d; /* fallback */
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    border-radius: 5px;
+    color: #FFF
+
+}
+.close-btn:hover {
+    background: #00a65b;
+}
+
+
+
+/* media query for most mobile devices */
+@media only screen and (min-width: 0px) and (max-width: 480px){
+
+    .overlay-content {
+        width: 96%;
+        margin: 0 2%;
+        left: 0;
+    }
+}
+
