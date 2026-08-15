@@ -34,7 +34,7 @@ check('PHP Version: ' . PHP_VERSION, $phpOk, $phpOk ? 'PHP 8.0+ required' : 'You
 
 // 2. Vendor folder
 $vendorOk = is_dir(__DIR__ . '/vendor');
-check('Composer vendor folder', $vendorOk, $vendorOk ? '' : 'Run: composer install');
+check('Composer vendor folder', $vendorOk, $vendorOk ? '' : 'Double-click install.bat (or run: composer install)');
 
 // 3. .env file
 $envOk = file_exists(__DIR__ . '/.env');
@@ -75,9 +75,38 @@ if ($envOk) {
 }
 check('Database connection', $dbOk, $dbDetail);
 
-// 6. Storage writable
-$storageOk = is_writable(__DIR__ . '/storage') && is_writable(__DIR__ . '/storage/framework');
-check('Storage writable', $storageOk, $storageOk ? '' : 'Make storage folder writable');
+// 6. Storage writable (with auto-fix)
+$storageDirs = [
+    __DIR__ . '/storage',
+    __DIR__ . '/storage/framework',
+    __DIR__ . '/storage/framework/cache',
+    __DIR__ . '/storage/framework/cache/data',
+    __DIR__ . '/storage/framework/sessions',
+    __DIR__ . '/storage/framework/views',
+    __DIR__ . '/storage/logs',
+    __DIR__ . '/storage/app',
+    __DIR__ . '/storage/app/public',
+    __DIR__ . '/public/uploads',
+    __DIR__ . '/public/uploads/students',
+    __DIR__ . '/public/uploads/teachers',
+];
+$storageOk = true;
+$storageDetail = '';
+foreach ($storageDirs as $dir) {
+    if (!is_dir($dir)) {
+        @mkdir($dir, 0777, true);
+    }
+    // Try to actually write a test file (most accurate check)
+    $testFile = $dir . '/.write-test-' . uniqid() . '.tmp';
+    $canWrite = @file_put_contents($testFile, 'ok') !== false;
+    if ($canWrite) {
+        @unlink($testFile);
+    } else {
+        $storageOk = false;
+        $storageDetail .= basename($dir) . ' not writable. ';
+    }
+}
+check('Storage writable (auto-fixed if possible)', $storageOk, $storageOk ? 'All storage folders writable' : $storageDetail . 'Run install.bat or chmod -R 775 storage');
 
 // 7. Tables needed
 $neededTables = ['users', 'students', 'teachers', 'classes', 'subjects', 'attendance', 'exams', 'results', 'fees', 'fee_types', 'exam_types', 'enrollments'];

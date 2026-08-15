@@ -205,7 +205,25 @@ emis/
 - The `composer.json` file must be present in that folder
 - If you cloned the repo, use branch `arena/01a0038f-emis`
 
-### 3. 404 Not Found on routes (except homepage)
+### 3. setup.php shows "✘ Composer vendor folder"
+This means the `vendor` folder is missing — Laravel itself isn't installed yet. Fix it in **one of two ways**:
+- **Easiest:** Double-click **`install.bat`** in the project folder — it installs everything automatically ✅
+- **Manually:** Run in Command Prompt:
+  ```bash
+  cd C:\xampp\htdocs\emis
+  composer install
+  ```
+- If `composer` is not recognized → install Composer from https://getcomposer.org/download/ (Composer-Setup.exe)
+
+### 4. setup.php shows "✘ Storage writable"
+Run this in Command Prompt inside `C:\xampp\htdocs\emis`:
+```bash
+attrib -r -s -h storage /s /d
+icacls storage /grant Everyone:(OI)(CI)F /T
+```
+Or simply double-click **`install.bat`** — it fixes storage permissions automatically. Then reload setup.php.
+
+### 5. 404 Not Found on routes (except homepage)
 - Enable Apache mod_rewrite: In `C:\xampp\apache\conf\httpd.conf` uncomment:
   ```
   LoadModule rewrite_module modules/mod_rewrite.so
