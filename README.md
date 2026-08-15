@@ -223,7 +223,18 @@ icacls storage /grant Everyone:(OI)(CI)F /T
 ```
 Or simply double-click **`install.bat`** — it fixes storage permissions automatically. Then reload setup.php.
 
-### 5. 404 Not Found on routes (except homepage)
+### 5. Composer error "could not be found in any version" (e.g. maatwebsite/laravel-excel)
+This means your `composer.json` is an **old version** that included extra packages the app doesn't use.
+Fix: get the latest `composer.json` from GitHub (branch `arena/01a0038f-emis`), or in your folder run:
+```bash
+git pull origin arena/01a0038f-emis
+```
+Then delete the `composer.lock` file (if present) and run:
+```bash
+composer install
+```
+
+### 6. 404 Not Found on routes (except homepage)
 - Enable Apache mod_rewrite: In `C:\xampp\apache\conf\httpd.conf` uncomment:
   ```
   LoadModule rewrite_module modules/mod_rewrite.so
