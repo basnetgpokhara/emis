@@ -52,7 +52,10 @@ class StudentController extends Controller
         $data['status'] = 'active';
 
         if ($request->hasFile('photo')) {
-            $data['photo'] = $request->file('photo')->store('students', 'public');
+            $file = $request->file('photo');
+            $filename = 'stu-' . time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/students'), $filename);
+            $data['photo'] = 'uploads/students/' . $filename;
         }
 
         // Create user account
@@ -103,7 +106,10 @@ class StudentController extends Controller
         $data = $request->all();
 
         if ($request->hasFile('photo')) {
-            $data['photo'] = $request->file('photo')->store('students', 'public');
+            $file = $request->file('photo');
+            $filename = 'stu-' . time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/students'), $filename);
+            $data['photo'] = 'uploads/students/' . $filename;
         }
 
         $student->update($data);
